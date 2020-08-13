@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Install Pre-requisites
-          command: sudo apt-get install build-essential kernel-package fakeroot libncurses5-dev libssl-dev ccache bison flex
+          command: sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install build-essential kernel-package fakeroot libncurses5-dev libssl-dev ccache bison flex
       - run:
           name: Copy config from existing kernel
           command: cp /boot/config-`uname -r` .config
