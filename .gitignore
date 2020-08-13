@@ -149,3 +149,4 @@ x509.genkey
 /compile_commands.json
 
 !.circleci
+!.kunitconfig
