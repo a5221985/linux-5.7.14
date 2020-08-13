@@ -7,28 +7,28 @@ Checking advanced syscall emulation patch for ptrace...OK
 Checking environment variables for a tempdir...none found
 Checking if /dev/shm is on tmpfs...OK
 Checking PROT_EXEC mmap in /dev/shm...OK
-Adding 7372800 bytes to physical memory to account for exec-shield gap
-Linux version 5.7.14 (am@ubuntu) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04), GNU ld (GNU Binutils for Ubuntu) 2.30) #4 Wed Aug 12 20:44:16 IST 2020
-Built 1 zonelists, mobility grouping on.  Total pages: 260335
+Adding 18432000 bytes to physical memory to account for exec-shield gap
+Linux version 5.7.14-gddf8f2cdd-dirty (am@ubuntu) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04), GNU ld (GNU Binutils for Ubuntu) 2.30) #1 Thu Aug 13 10:02:05 IST 2020
+Built 1 zonelists, mobility grouping on.  Total pages: 262998
 Kernel command line: mem=1G root=98:0
-Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
-Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
 mem auto-init: stack:off, heap alloc:off, heap free:off
-Memory: 1029460K/1055776K available (1829K kernel code, 517K rwdata, 404K rodata, 97K init, 213K bss, 26316K reserved, 0K cma-reserved)
+Memory: 1027756K/1066576K available (1829K kernel code, 517K rwdata, 404K rodata, 97K init, 213K bss, 38820K reserved, 0K cma-reserved)
 SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
 NR_IRQS: 16
 clocksource: timer: mask: 0xffffffffffffffff max_cycles: 0x1cd42e205, max_idle_ns: 881590404426 ns
-Calibrating delay loop... 996.14 BogoMIPS (lpj=4980736)
+Calibrating delay loop... 1495.85 BogoMIPS (lpj=7479296)
 pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
-Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+Mount-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+Mountpoint-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
 Checking that host ptys support output SIGIO...Yes
 Checking that host ptys support SIGIO on close...No, enabling workaround
 clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
 futex hash table entries: 256 (order: 0, 6144 bytes, linear)
 clocksource: Switched to clocksource timer
 printk: console [stderr0] disabled
-mconsole (version 2) initialized on /home/am/.uml/jYfP8K/mconsole
+mconsole (version 2) initialized on /home/am/.uml/gRITHc/mconsole
 Checking host MADV_REMOVE support...OK
 workingset: timestamp_bits=62 max_order=18 bucket_order=0
 Block layer SCSI generic (bsg) driver version 0.4 loaded (major 254)
@@ -114,11 +114,11 @@ List of all partitions:
 No filesystem could mount root, tried: 
 
 Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(98,0)
-CPU: 0 PID: 1 Comm: swapper Not tainted 5.7.14 #4
+CPU: 0 PID: 1 Comm: swapper Not tainted 5.7.14-gddf8f2cdd-dirty #1
 Stack:
- 60219d30 601ce9a0 9f1b3000 9f1b3000
- 60219d30 600620dc 9f1b3000 6002d06b
- 9f1b3000 9f1b3000 600620dc 3000000010
+ 60219d70 601ce9a0 9fdbb000 9fdbb000
+ 60219d70 600620dc 9fdbb000 6002d06b
+ 9fdbb000 9fdbb000 600620dc 3000000010
 Call Trace:
  [<60023845>] ? os_is_signal_stack+0x15/0x30
  [<600620dc>] ? printk+0x0/0x9b

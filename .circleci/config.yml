@@ -7,6 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Prerequisite
+          command: make mrproper
+      - run:
           name: Run KUnit Tests
           command: ./tools/testing/kunit/kunit.py run 
 
