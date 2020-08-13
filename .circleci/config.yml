@@ -7,12 +7,12 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Pre-requisites
+          name: Update & upgrade
           no_output_timeout: 60m
           command: sudo apt-get update && sudo apt-get upgrade -y
       - run:
-          name: Build kernel
-          no_output_timeout: 600m
+          name: Install pre-requisites
+          no_output_timeout: 60m
           command: sudo apt-get install build-essential kernel-package fakeroot libncurses5-dev libssl-dev ccache bison flex -y
       - run:
           name: Copy config from existing kernel
@@ -28,6 +28,7 @@ jobs:
           command: make clean
       - run:
           name: Build
+          no_output_timeout: 1200m
           command: make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom
       - run:
           name: Prerequisite
