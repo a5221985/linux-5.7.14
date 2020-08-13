@@ -13,7 +13,7 @@ jobs:
       - run:
           name: Install pre-requisites
           no_output_timeout: 60m
-          command: sudo apt-get install build-essential libncurses5-dev libssl-dev ccache bison flex
+          command: sudo apt-get install build-essential libncurses5-dev libssl-dev libelf-dev libgtk2.0-dev libglib2.0-dev libglade2-dev bc libncurses-dev fakeroot ccache bison flex
       - run:
           name: Copy config from existing kernel
           command: cp /boot/config-`uname -r` .config
