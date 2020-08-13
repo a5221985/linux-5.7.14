@@ -7,6 +7,21 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Copy config from existing kernel
+          command: cp /boot/config-`uname -r` .config
+      - run:
+          name: Answer oldconfig
+          command: yes '' | make oldconfig
+      - run:
+          name: Define config
+          command: make defconfig
+      - run:
+          name: Clean
+          command: make clean
+      - run:
+          name: Build
+          command: make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom
+      - run:
           name: Prerequisite
           command: make mrproper
       - run:
