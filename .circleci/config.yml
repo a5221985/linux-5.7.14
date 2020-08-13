@@ -22,7 +22,7 @@ jobs:
           command: yes '' | make oldconfig
       - run:
           name: Define config
-          command: 2 '' | make defconfig
+          command: echo '2' | make defconfig
       - run:
           name: Clean
           command: make clean
