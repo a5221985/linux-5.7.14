@@ -13,7 +13,7 @@ jobs:
       - run:
           name: Install pre-requisites
           no_output_timeout: 60m
-          command: sudo apt-get install build-essential kernel-package fakeroot libncurses5-dev libssl-dev ccache bison flex -y
+          command: (echo '2') | sudo apt-get install build-essential kernel-package fakeroot libncurses5-dev libssl-dev ccache bison flex -y
       - run:
           name: Copy config from existing kernel
           command: cp /boot/config-`uname -r` .config
@@ -22,7 +22,7 @@ jobs:
           command: yes '' | make oldconfig
       - run:
           name: Define config
-          command: echo '2' | make defconfig
+          command: make defconfig
       - run:
           name: Clean
           command: make clean
