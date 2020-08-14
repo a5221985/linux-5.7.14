@@ -19,7 +19,7 @@ jobs:
           command: cp /boot/config-`uname -r` .config
       - run:
           name: Answer oldconfig
-          command: (yes '' | make oldconfig; exit 0; 2>&1 > /dev/null)
+          command: (yes '' | make oldconfig 2>&1 > /dev/null; exit 0;)
       - run:
           name: Define config
           command: make defconfig
