@@ -28,6 +28,15 @@ jobs:
           no_output_timeout: 1200m
           command: make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom
       - run:
+          name: Install kernel component 1
+          command: sudo dpkg -i ../linux-libc-dev_5.7.14-custom-1_amd64.deb
+      - run:
+          name: Install kernel component 2
+          command: sudo dpkg -i ../linux-image-5.7.14-custom_5.7.14-custom-1_amd64.deb
+      - run:
+          name: Reboot
+          command: sudo reboot 
+      - run:
           name: Run KUnit Tests
           command: ./tools/testing/kunit/kunit.py run 
 
