@@ -34,6 +34,9 @@ jobs:
           name: Install kernel component 2
           command: sudo dpkg -i ../linux-image-5.7.14-custom_5.7.14-custom-1_amd64.deb
       - run:
+          name: Install Python 3.x
+          command: sudo apt install software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt update && sudo apt install python3.8 && python ––version
+      - run:
           name: Run KUnit Tests
           command: ./tools/testing/kunit/kunit.py run 
 
