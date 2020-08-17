@@ -21,6 +21,12 @@ jobs:
           name: Define config
           command: make defconfig
       - run:
+          name: Install Python 3.x
+          command: sudo apt install software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt update && sudo apt install python3.8 && sudo ln -f -s /usr/bin/python3.8 /usr/bin/python3
+      - run:
+          name: Run KUnit Tests
+          command: ./tools/testing/kunit/kunit.py run 
+      - run:
           name: Clean
           command: make clean
       - run:
@@ -29,16 +35,13 @@ jobs:
           command: make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom
       - run:
           name: Install kernel component 1
-          command: sudo dpkg -i ../linux-libc-dev_5.7.14-custom-1_amd64.deb
+          command: sudo dpkg -i ../linux-headers-5.7.14-custom_5.7.14-custom-1_amd64.deb
       - run:
           name: Install kernel component 2
+          command: sudo dpkg -i ../linux-libc-dev_5.7.14-custom-1_amd64.deb
+      - run:
+          name: Install kernel component 3
           command: sudo dpkg -i ../linux-image-5.7.14-custom_5.7.14-custom-1_amd64.deb
-      - run:
-          name: Install Python 3.x
-          command: sudo apt install software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt update && sudo apt install python3.8 && sudo ln -f -s /usr/bin/python3.8 /usr/bin/python3
-      - run:
-          name: Run KUnit Tests
-          command: ./tools/testing/kunit/kunit.py run 
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
