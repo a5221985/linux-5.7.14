@@ -7,28 +7,28 @@ Checking advanced syscall emulation patch for ptrace...OK
 Checking environment variables for a tempdir...none found
 Checking if /dev/shm is on tmpfs...OK
 Checking PROT_EXEC mmap in /dev/shm...OK
-Adding 2002944 bytes to physical memory to account for exec-shield gap
-Linux version 5.7.14-g11c809857 (am@ubuntu) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04), GNU ld (GNU Binutils for Ubuntu) 2.30) #2 Mon Aug 17 21:02:18 IST 2020
-Built 1 zonelists, mobility grouping on.  Total pages: 259042
+Adding 22024192 bytes to physical memory to account for exec-shield gap
+Linux version 5.7.14-g16f73e990-dirty (am@ubuntu) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04), GNU ld (GNU Binutils for Ubuntu) 2.30) #3 Mon Aug 17 23:16:14 IST 2020
+Built 1 zonelists, mobility grouping on.  Total pages: 263863
 Kernel command line: mem=1G root=98:0
-Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
-Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
 mem auto-init: stack:off, heap alloc:off, heap free:off
-Memory: 1029516K/1050532K available (1829K kernel code, 517K rwdata, 404K rodata, 97K init, 213K bss, 21016K reserved, 0K cma-reserved)
+Memory: 1027700K/1070084K available (1829K kernel code, 517K rwdata, 404K rodata, 97K init, 213K bss, 42384K reserved, 0K cma-reserved)
 SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
 NR_IRQS: 16
 clocksource: timer: mask: 0xffffffffffffffff max_cycles: 0x1cd42e205, max_idle_ns: 881590404426 ns
-Calibrating delay loop... 709.42 BogoMIPS (lpj=3547136)
+Calibrating delay loop... 1076.42 BogoMIPS (lpj=5382144)
 pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
-Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+Mount-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+Mountpoint-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
 Checking that host ptys support output SIGIO...Yes
 Checking that host ptys support SIGIO on close...No, enabling workaround
 clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
 futex hash table entries: 256 (order: 0, 6144 bytes, linear)
 clocksource: Switched to clocksource timer
 printk: console [stderr0] disabled
-mconsole (version 2) initialized on /home/am/.uml/LmaMzw/mconsole
+mconsole (version 2) initialized on /home/am/.uml/KQS5cC/mconsole
 Checking host MADV_REMOVE support...OK
 workingset: timestamp_bits=62 max_order=18 bucket_order=0
 Block layer SCSI generic (bsg) driver version 0.4 loaded (major 254)
@@ -103,49 +103,46 @@ ok 4 - string-stream-test
     ok 1 - example_simple_test
 ok 5 - example
     # Subtest: misc-example
-    1..2
+    1..1
     ok 1 - misc_example_add_test_basic
-    # misc_example_test_failure: EXPECTATION FAILED at drivers/misc/example-test.c:17
-This test never passes.
-    not ok 2 - misc_example_test_failure
-not ok 6 - misc-example
+ok 6 - misc-example
 epollctl add err fd 1, Operation not permitted
 List of all partitions:
 No filesystem could mount root, tried: 
 
 Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(98,0)
-CPU: 0 PID: 1 Comm: swapper Not tainted 5.7.14-g11c809857 #2
+CPU: 0 PID: 1 Comm: swapper Not tainted 5.7.14-g16f73e990-dirty #3
 Stack:
- 60219d70 601ce9a0 9edb3000 9edb3000
- 60219d70 600620dc 9edb3000 6002d06b
- 9edb3000 9edb3000 600620dc 3000000010
+ 60219d60 601ce930 9fdbb000 9fdbb000
+ 60219d60 600620dc 9fdbb000 6002d06b
+ 9fdbb000 9fdbb000 600620dc 3000000010
 Call Trace:
  [<60023845>] ? os_is_signal_stack+0x15/0x30
  [<600620dc>] ? printk+0x0/0x9b
  [<60017dce>] ? show_stack+0xbe/0x1b0
- [<601ce9a0>] ? strlen+0x0/0x30
+ [<601ce930>] ? strlen+0x0/0x30
  [<600620dc>] ? printk+0x0/0x9b
  [<6002d06b>] ? panic+0x181/0x386
  [<600620dc>] ? printk+0x0/0x9b
- [<601ce7e0>] ? strchr+0x0/0x30
+ [<601ce770>] ? strchr+0x0/0x30
  [<6002ceea>] ? panic+0x0/0x386
  [<60001cf2>] ? do_one_initcall+0x0/0x19c
- [<601ce350>] ? strcpy+0x0/0x30
+ [<601ce2e0>] ? strcpy+0x0/0x30
  [<600c2275>] ? __alloc_pages_nodemask+0xe5/0x1f0
  [<601239d0>] ? fsnotify+0x0/0x3b0
  [<6000c9f6>] ? get_filesystem_list+0x6f/0x85
  [<600620dc>] ? printk+0x0/0x9b
- [<601ce9a0>] ? strlen+0x0/0x30
- [<601ce7e0>] ? strchr+0x0/0x30
+ [<601ce930>] ? strlen+0x0/0x30
+ [<601ce770>] ? strchr+0x0/0x30
  [<600025dd>] ? mount_block_root+0x3ca/0x3ea
- [<601ce790>] ? strncmp+0x0/0x50
- [<601ce790>] ? strncmp+0x0/0x50
+ [<601ce720>] ? strncmp+0x0/0x50
+ [<601ce720>] ? strncmp+0x0/0x50
  [<60001cf2>] ? do_one_initcall+0x0/0x19c
- [<601ce350>] ? strcpy+0x0/0x30
+ [<601ce2e0>] ? strcpy+0x0/0x30
  [<6000284e>] ? prepare_namespace+0x1a0/0x1e8
  [<60001cf2>] ? do_one_initcall+0x0/0x19c
  [<60002118>] ? kernel_init_freeable+0x28a/0x299
  [<600620dc>] ? printk+0x0/0x9b
- [<601d8686>] ? kernel_init+0x26/0x160
+ [<601d8616>] ? kernel_init+0x26/0x160
  [<60016752>] ? new_thread_handler+0x82/0xc0
 
