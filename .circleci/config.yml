@@ -15,17 +15,17 @@ jobs:
           no_output_timeout: 60m
           command: sudo apt-get install build-essential libncurses5-dev libssl-dev libelf-dev libgtk2.0-dev libglib2.0-dev libglade2-dev bc libncurses-dev fakeroot ccache bison flex
       - run:
-          name: Copy config from existing kernel
-          command: cp /boot/config-`uname -r` .config
-      - run:
-          name: Define config
-          command: make defconfig
-      - run:
           name: Install Python 3.x
           command: sudo apt install software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt update && sudo apt install python3.8 && sudo ln -f -s /usr/bin/python3.8 /usr/bin/python3
       - run:
           name: Run KUnit Tests
           command: ./tools/testing/kunit/kunit.py run 
+      - run:
+          name: Copy config from existing kernel
+          command: cp /boot/config-`uname -r` .config
+      - run:
+          name: Define config
+          command: make defconfig
       - run:
           name: Clean
           command: make clean
