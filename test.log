@@ -7,18 +7,18 @@ Checking advanced syscall emulation patch for ptrace...OK
 Checking environment variables for a tempdir...none found
 Checking if /dev/shm is on tmpfs...OK
 Checking PROT_EXEC mmap in /dev/shm...OK
-Adding 22024192 bytes to physical memory to account for exec-shield gap
-Linux version 5.7.14-g16f73e990-dirty (am@ubuntu) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04), GNU ld (GNU Binutils for Ubuntu) 2.30) #3 Mon Aug 17 23:16:14 IST 2020
-Built 1 zonelists, mobility grouping on.  Total pages: 263863
+Adding 22708224 bytes to physical memory to account for exec-shield gap
+Linux version 5.7.14-g10be0930d (am@ubuntu) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04), GNU ld (GNU Binutils for Ubuntu) 2.30) #4 Tue Aug 18 14:35:45 IST 2020
+Built 1 zonelists, mobility grouping on.  Total pages: 264028
 Kernel command line: mem=1G root=98:0
 Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
 Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
 mem auto-init: stack:off, heap alloc:off, heap free:off
-Memory: 1027700K/1070084K available (1829K kernel code, 517K rwdata, 404K rodata, 97K init, 213K bss, 42384K reserved, 0K cma-reserved)
+Memory: 1027700K/1070752K available (1829K kernel code, 517K rwdata, 404K rodata, 97K init, 213K bss, 43052K reserved, 0K cma-reserved)
 SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
 NR_IRQS: 16
 clocksource: timer: mask: 0xffffffffffffffff max_cycles: 0x1cd42e205, max_idle_ns: 881590404426 ns
-Calibrating delay loop... 1076.42 BogoMIPS (lpj=5382144)
+Calibrating delay loop... 1242.72 BogoMIPS (lpj=6213632)
 pid_max: default: 32768 minimum: 301
 Mount-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
 Mountpoint-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
@@ -28,7 +28,7 @@ clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911
 futex hash table entries: 256 (order: 0, 6144 bytes, linear)
 clocksource: Switched to clocksource timer
 printk: console [stderr0] disabled
-mconsole (version 2) initialized on /home/am/.uml/KQS5cC/mconsole
+mconsole (version 2) initialized on /home/am/.uml/PYpldX/mconsole
 Checking host MADV_REMOVE support...OK
 workingset: timestamp_bits=62 max_order=18 bucket_order=0
 Block layer SCSI generic (bsg) driver version 0.4 loaded (major 254)
@@ -111,11 +111,11 @@ List of all partitions:
 No filesystem could mount root, tried: 
 
 Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(98,0)
-CPU: 0 PID: 1 Comm: swapper Not tainted 5.7.14-g16f73e990-dirty #3
+CPU: 0 PID: 1 Comm: swapper Not tainted 5.7.14-g10be0930d #4
 Stack:
- 60219d60 601ce930 9fdbb000 9fdbb000
- 60219d60 600620dc 9fdbb000 6002d06b
- 9fdbb000 9fdbb000 600620dc 3000000010
+ 60219d60 601ce930 a01bb000 a01bb000
+ 60219d60 600620dc a01bb000 6002d06b
+ a01bb000 a01bb000 600620dc 3000000010
 Call Trace:
  [<60023845>] ? os_is_signal_stack+0x15/0x30
  [<600620dc>] ? printk+0x0/0x9b
