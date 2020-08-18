@@ -22,7 +22,7 @@ jobs:
           command: if [ -f "vmlinux-gdb.py" ]; then rm vmlinux-gdb.py; fi; rm -rf ../linux-5.7.14-custom*;
       - run:
           name: Remove untracked files from previous build
-          command: git status && git clean -r
+          command: git status && git clean -f
       - run:
           name: Run KUnit Tests
           command: ./tools/testing/kunit/kunit.py run 
