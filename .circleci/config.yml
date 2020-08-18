@@ -18,6 +18,9 @@ jobs:
           name: Install Python 3.x
           command: sudo apt install software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt update && sudo apt install python3.8 && sudo ln -f -s /usr/bin/python3.8 /usr/bin/python3
       - run:
+          name: Remove unnecessary file if exists
+          command: if [ -f "vmlinux-gdb.py" ]; then rm vmlinux-gdb.py; fi
+      - run:
           name: Run KUnit Tests
           command: ./tools/testing/kunit/kunit.py run 
       - run:
