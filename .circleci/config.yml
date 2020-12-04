@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     machine:
-      image: ubuntu-1604:202007-01
+      image: ubuntu-1604:202010-01
     steps:
       - checkout
       - run:
@@ -20,9 +20,9 @@ jobs:
       - run:
           name: Remove untracked files from previous build
           command: git status && git clean -f -d
-      - run:
-          name: Copy config from existing kernel
-          command: cp /boot/config-`uname -r` .config
+          #      - run:
+          #          name: Copy config from existing kernel
+          #          command: cp /boot/config-`uname -r` .config
       - run:
           name: Define config
           command: make defconfig
