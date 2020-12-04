@@ -50,13 +50,13 @@ jobs:
           command: sudo dpkg -i ../linux-image-5.7.14-custom_5.7.14-custom-1_amd64.deb
       - store_artifacts:
           path: ../linux-headers-5.7.14-custom_5.7.14-custom-1_amd64.deb
-          destination: /home/circleci/build
+          destination: build/linux-headers-5.7.14-custom_5.7.14-custom-1_amd64.deb
       - store_artifacts:
           path: ../linux-libc-dev_5.7.14-custom-1_amd64.deb
-          destination: /home/circleci/build
+          destination: build/linux-libc-dev_5.7.14-custom-1_amd64.deb
       - store_artifacts:
           path: ../linux-image-5.7.14-custom_5.7.14-custom-1_amd64.deb
-          destination: /home/circleci/build
+          destination: build/linux-image-5.7.14-custom_5.7.14-custom-1_amd64.deb
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
