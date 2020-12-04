@@ -48,6 +48,15 @@ jobs:
       - run:
           name: Install kernel component 3
           command: sudo dpkg -i ../linux-image-5.7.14-custom_5.7.14-custom-1_amd64.deb
+      - store_artifacts:
+          path: ../linux-headers-5.7.14-custom_5.7.14-custom-1_amd64.deb
+          destination: /
+      - store_artifacts:
+          path: ../linux-libc-dev_5.7.14-custom-1_amd64.deb
+          destination: /
+      - store_artifacts:
+          path: ../linux-image-5.7.14-custom_5.7.14-custom-1_amd64.deb
+          destination: /
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
